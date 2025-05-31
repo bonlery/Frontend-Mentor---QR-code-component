@@ -1,0 +1,127 @@
+:root {
+    --white: hsl(0, 0%, 100%);
+    --slate-300: hsl(212, 45%, 89%);
+    --slate-500: hsl(216, 15%, 48%);
+    --slate-900: hsl(218, 44%, 22%);
+
+    --font-size-body: 15px;
+    --font-family-outfit: "Outfit", sans-serif;
+
+    --font-weight-regular: 400;
+    --font-weight-bold: 700;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--slate-300);
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    font-family: var(--font-family-outfit);
+    background-color: var(--white);
+    width: 316px;
+    height: auto;
+    padding: 16px;
+    border-radius: 16px;
+    transform: translate(-8px, -4px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    opacity: 1;
+    transition: width 0.5s ease;
+    overflow: hidden;
+}
+.card img {
+    width: 285px;
+    border-radius: 10px;
+    display: block;
+}
+
+.img-description {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px 0 0 0;
+    transition: all 0.5s ease;
+}
+.img-description p:nth-of-type(1) {
+    margin: 14px 0 0 0;
+    line-height: 26px;
+    font-size: 22px;
+    max-width: 256px;
+    max-height: 52px;
+    color: var(--slate-900);
+    font-weight: var(--font-weight-bold);
+    transition: all 0.5s ease;
+}
+.img-description p:nth-of-type(2) {
+    line-height: 20px;
+    margin: 16px 0 20px 0;
+    color: var(--slate-500);
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-regular);
+    max-width: 256px;
+    max-height: 63px;
+}
+
+.animation-trigger {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 285px;
+    height: 300px;
+    aspect-ratio: 285 / 180;
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: all 0.5s ease;
+    border-radius: 10px;
+}
+
+.animation-trigger:hover ~ .card {
+    width: max-content;
+}
+.animation-trigger:hover ~ .img-description {
+    opacity: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    transform: scale(0, 0);
+    pointer-events: none;
+}
+
+.close-up-qr {
+    display: none;
+}
+
+.card:active ~ .close-up-qr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+.attribution {
+    position: absolute;
+    font-size: 11px;
+    text-align: center;
+    top: 98%;
+}
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
